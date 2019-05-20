@@ -5,10 +5,13 @@ COLORS:
 $mediumGreen: #55c57a;
 $darkGreen: #28b485; */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+
 }
 
 html {
@@ -18,10 +21,11 @@ html {
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  /* font-size: 1rem; */
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -36,18 +40,18 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 
 }
 
-.logo {
+.header__logo {
   height: 3.5rem
 }
 
-.text-box {
+.header__text-box {
   /* allow a center positioning */
   position: absolute;
   top: 40%;
@@ -63,7 +67,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   letter-spacing: 3.5rem;
@@ -75,7 +79,7 @@ body {
     animation-iteration-count: 5; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   letter-spacing: 1.75rem;
@@ -106,7 +110,7 @@ body {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }

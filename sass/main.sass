@@ -1,0 +1,154 @@
+//COLORS:
+$lightGreen: #7ed56f
+$mediumGreen: #55c57a
+$darkGreen: #28b485
+$color-white: #fff
+$color-grey-dark: #777
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: inherit
+  &::after, &::before
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+html
+  font-size: 62.5%
+
+body
+  font-family: "Lato", sans-serif
+  font-weight: 400
+  font-size: 1.6rem
+  line-height: 1.7
+  color: $color-grey-dark
+  padding: 3rem
+  box-sizing: border-box
+
+.header
+  height: 95vh
+  background: linear-gradient(to right bottom, rgba($lightGreen, .8), rgba($darkGreen, .8)), url(../img/hero.jpg)
+  background-size: cover
+  background-position: top
+  clip-path: polygon(0 0, 100% 0%, 100% 75vh, 0 100%)
+  position: relative
+
+.header__logo-box
+  position: absolute
+  top: 4rem
+  left: 4rem
+
+.header__logo
+  height: 3.5rem
+
+.header__text-box
+  // allow a center positioning
+  position: absolute
+  top: 40%
+  left: 50%
+  transform: translate(-50%, -50%)
+  text-align: center
+
+.heading-primary
+  color: $color-white
+  text-transform: uppercase
+  backface-visibility: hidden
+  margin-bottom: 6rem
+
+.heading-primary--main
+  display: block
+  font-size: 6rem
+  letter-spacing: 3.5rem
+  animation-name: moveInLeft
+  animation-duration: 1s
+  animation-timing-function: ease-out
+
+.heading-primary--sub
+  display: block
+  font-size: 2rem
+  letter-spacing: 1.75rem
+  font-weight: 700
+  animation: moveInRight 1s ease-out
+
+.btn
+  &:link, &:visited
+    text-transform: uppercase
+    text-decoration: none
+    padding: 1.5rem 4rem
+    display: inline-block
+    border-radius: 10rem
+    transition: all 0.2s
+    position: relative
+    font-size: 1.6rem
+  &:hover
+    transform: translateY(-0.3rem)
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2)
+  &:active
+    transform: translate(-0.1rem)
+    // less shadow when active as the button go back down
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2)
+
+.btn--white
+  background-color: $color-white
+  color: $color-grey-dark
+  &::after
+    background-color: white
+  &:hover::after
+    transform: scaleX(1.5) scaleY(1.6)
+    opacity: 0
+
+.btn
+  &::after
+    content: ""
+    display: inline-block
+    height: 100%
+    width: 100%
+    border-radius: 6.25rem
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+    transition: all .4s
+
+
+.header .btn.btn-white
+  // animation-delay: .75s
+  animation: moveInTop .5s ease-out .75s
+  // prevent the target to be visible before the animation happen
+  animation-fill-mode: backwards
+
+@keyframes moveInLeft
+  0%
+    opacity: 0
+    transform: translateX(-10rem)
+
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+
+@keyframes moveInRight
+  0%
+    opacity: 0
+    transform: translateX(10rem)
+
+  80%
+    transform: translateX(-1rem)
+
+  100%
+    opacity: 1
+    transform: translateX(0)
+
+
+@keyframes moveInTop
+  0%
+    opacity: 0
+    transform: translateY(10rem)
+
+  80%
+    // transform: translateY(-.625rem)
+
+  100%
+    opacity: 1
+    transform: translateY(0)
